@@ -348,7 +348,7 @@
   [[sql & params :as sql-params] func]
   (when-not (vector? sql-params)
     (throw (Exception. "sql-params must be a vector")))
-  (with-open [stmt (.prepareStatement (:connection sqlint/*db*) sql)]
+  (with-open [stmt (sqlint/prepare-statement sql)]
     (doseq [[idx v] (map vector (iterate inc 1) params)]
       (.setObject stmt idx v))
     (if-let [fetch-size (-> sqlint/*db* :opts :fetch-size)]
@@ -365,7 +365,7 @@
   open database connection. Each param-group is a seq of values for all of
   the parameters."
   [sql & param-groups]
-  (with-open [stmt (.prepareStatement (:connection sqlint/*db*) sql)]
+  (with-open [stmt (sqlint/prepare-statement sql)]
     (doseq [param-group param-groups]
       (doseq [[idx v] (map vector (iterate inc 1) param-group)]
         (.setObject stmt idx v))
