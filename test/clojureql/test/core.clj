@@ -2,7 +2,7 @@
   (:refer-clojure
    :exclude [compile take drop sort distinct conj! disj! case])
   (:use [clojureql.internal :only [update-or-insert-vals update-vals]]
-        [clojure.contrib.sql :only [with-connection find-connection]]
+        [clojure.java.jdbc :only [with-connection find-connection]]
         clojure.test
         clojureql.core
         clojure.contrib.mock)

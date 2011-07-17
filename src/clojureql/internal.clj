@@ -1,7 +1,7 @@
 (ns clojureql.internal
   (:require
-   [clojure.contrib.sql.internal :as sqlint]
-   [clojure.contrib.sql :as csql])
+   [clojure.java.jdbc.internal :as sqlint]
+   [clojure.java.jdbc :as csql])
   (:use [clojure.string :only [join upper-case] :rename {join join-str}]
         [clojure.contrib.string :only (as-str)]
         [clojure.contrib.core :only [-?> -?>>]]))

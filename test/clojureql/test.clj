@@ -1,6 +1,6 @@
 (ns clojureql.test
   (:refer-clojure :exclude [compile drop take sort distinct conj! disj! case])
-  (:use clojure.contrib.sql
+  (:use clojure.java.jdbc
         clojure.test
         clojureql.core
         [clojure.contrib.io :only [delete-file]]

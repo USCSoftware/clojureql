@@ -11,8 +11,9 @@
   (:use
    [clojureql internal predicates]
    [clojure.string :only [join upper-case] :rename {join join-str}]
-   [clojure.contrib sql [core :only [-?> -?>>]]]
-   [clojure.contrib.sql.internal :as sqlint]
+   [clojure.contrib [core :only [-?> -?>>]]]
+   clojure.java.jdbc
+   [clojure.java.jdbc.internal :as sqlint]
    [clojure.walk :only (postwalk-replace)]))
 
                                         ; GLOBALS
